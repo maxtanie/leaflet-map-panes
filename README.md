@@ -1,31 +1,25 @@
 # leaflet-map-panes
 Leaflet JS custom map panes, with CT town labels displayed on top of thematic polygon map
 
-## Demo (designed for zoom levels 10-14)
+## Demo (designed for zoom levels 10-13)
 http://jackdougherty.github.io/leaflet-map-panes/
 
 ## Requires
 - Leaflet 1.x
 - ArcGIS Online account (subscription)
 
-## Overview of steps
-1. Upload simplified polygon map into ArcGIS, remove boundaries, display labels
-2. Upload, publish, and share as a tile layer on ArcGIS Online (subscription) http://tiles.arcgis.com/tiles/5rblLCKLgS4Td60j/arcgis/rest/services/ConnecticutTownLabels2/
-3. Use esri-leaflet to display town labels as tile layer in Leaflet polygon map
-4. See Leaflet custom map panes tutorial to display layers at different z-levels http://leafletjs.com/examples/map-panes.html
+## Create your own
 
-## Detailed steps
-
-1. Upload simplified polygon map into ArcGIS, remove boundaries, display labels
-- Upload polygon map into http://mapshaper.org and create highly simplified view (down to 1 percent) to smooth lines. Export as shapefile.
+#### Upload simplified polygon map into ArcGIS, remove boundaries, display labels
+- Upload polygon map into http://mapshaper.org and create highly simplified view (down to 1 percent) to smooth lines. Export as shapefile. *This is my attempt to reduce extra labels from appearing in selected towns with non-rectangular geography, but am unsure if it helps.*
 - Upload shapefile to ArcGIS (I used version 10.2)
-  - remove polygon boundaries and fill
-  - label features (town names) with these settings
+- make polygon fill hollow, set lines to 0 width
+- label features (town names) with these settings
   - Arial 9 point font (1 pt above default)
-  - Placement properties > Place one label per feature (uncertain if this works)
+  - Placement properties > Place one label per feature *But this does not seem to do what it claims*
   - Conflict detection > default (label weight: high, feature weight: none; buffer: 0)
 
-2. Upload, publish, and share as a tile layer on ArcGIS Online
+#### Upload, publish, and share as a tile layer on ArcGIS Online (subscription)
 - Based on documentation: Publish Tiles on ArcGIS Online https://doc.arcgis.com/en/arcgis-online/share-maps/publish-tiles.htm#GUID-C467C9D7-443D-48D6-90AB-8204E3B9FD83
 - Trinity College subscription site http://trincoll.maps.arcgis.com/home/organization.html
 - Upload to ArcGIS Online
@@ -44,6 +38,9 @@ http://jackdougherty.github.io/leaflet-map-panes/
 - http://tiles.arcgis.com/tiles/5rblLCKLgS4Td60j/arcgis/rest/services/ConnecticutTownLabelsOnly/MapServer
 - Optional: in My Content browser window, keep new "Tile Layer," but able to erase "Tile Package" to reduce storage charges for ArcGis Online
 
+#### In Leaflet map, use esri-leaflet code to display town labels as tile layer http://esri.github.io/esri-leaflet/
+
+#### See Leaflet custom map panes tutorial to display tile layer at different z-levels above polygon http://leafletjs.com/examples/map-panes.html
 
 ## Questions for MAGIC
 - Can your team create a better ArcGIS tile layer of town names? In my version, some towns display multiple labels (see Torrington and Winchester)
