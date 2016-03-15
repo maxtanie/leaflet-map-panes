@@ -40,11 +40,18 @@ var lightNoLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels
 }).addTo(map);
 
 // ArcGIS Online tile layer, hosted on subscription service http://trincoll.maps.arcgis.com
-var arcGISLabels = L.esri.tiledMapLayer({
-    url: "http://tiles.arcgis.com/tiles/5rblLCKLgS4Td60j/arcgis/rest/services/ConnecticutTownLabels/MapServer",
+var arcGISLabelsCT = L.esri.tiledMapLayer({
+    url: "http://tiles.arcgis.com/tiles/5rblLCKLgS4Td60j/arcgis/rest/services/ConnecticutTownLabelsOnly/MapServer",
     pane: 'labels'
 }).addTo(map);
-controlLayers.addBaseLayer(arcGISLabels, 'ArcGIS Online Labels'); // replaced addOverlay with addBaseLayer for radio buttons
+controlLayers.addBaseLayer(arcGISLabelsCT, 'ArcGIS CT Labels'); // replaced addOverlay with addBaseLayer for radio buttons
+
+// ArcGIS Online tile layer, hosted on subscription service http://trincoll.maps.arcgis.com
+var arcGISLabelsCWP = L.esri.tiledMapLayer({
+    url: "http://tiles.arcgis.com/tiles/5rblLCKLgS4Td60j/arcgis/rest/services/CapitalWorkforcePartners37towns/MapServer",
+    pane: 'labels'
+});
+controlLayers.addBaseLayer(arcGISLabelsCWP, 'ArcGIS CWP Labels'); // replaced addOverlay with addBaseLayer for radio buttons
 
 // free CartoDB labels only layer, but insufficient detail
 var lightOnlyLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
