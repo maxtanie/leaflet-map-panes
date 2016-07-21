@@ -4,8 +4,8 @@ Leaflet JS custom map panes, with CT town labels displayed on top of thematic po
 ## Demo (designed for zoom levels 10-13)
 http://jackdougherty.github.io/leaflet-map-panes/
 
-## Requires
-- Leaflet 1.x
+## Dependencies
+- Leaflet, jQuery, Esri Leaflet
 - ArcGIS Online account (subscription)
 
 ## Create your own
