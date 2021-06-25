@@ -97,7 +97,7 @@ $.getJSON("polygons.geojson", function (data) {   // insert pathname to your loc
     onEachFeature: function( feature, layer) {
       var popupText = "<b>" + feature.properties.Town + "</b>"   // replace labels with those from your own geojson
          + "<br>Population 2010: " + "<br>" + feature.properties.Pop2010;
-      layer.bindPopup(popupText);
+      layer.tooltip(popupText);
     }
   }).addTo(map);
   controlLayers.addOverlay(geoJsonLayer, 'CT Pop 2010');  // insert your 'Title' to add to legend
